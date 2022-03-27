@@ -4,59 +4,43 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/shinya/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/shinya/.cache/dein//repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/shinya/.cache/dein')
-  call dein#begin('/Users/shinya/.cache/dein')
+call dein#begin('/Users/shinya/.cache/dein/')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/shinya/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/deol.nvim')
-  call dein#add('deoplete-plugins/deoplete-jedi')
-  call dein#add('deoplete-plugins/deoplete-docker')
-  call dein#add('carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' })
-  call dein#add('neovim/node-host', { 'build': 'npm install' })
-  call dein#add('billyvg/tigris.nvim', { 'build': './install.sh' })
+" Let dein manage dein
+" Required:
+call dein#add('/Users/shinya/.cache/dein//repos/github.com/Shougo/dein.vim')
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" Add or remove your plugins here like this:
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('fatih/vim-go')
+call dein#add('preservim/nerdtree')
+
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
-syntax enable
-let g:deoplete#enable_at_startup = 1
-let g:tigris#enabled = 1
+syntax on
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
+"if dein#check_install()
+" call dein#install()
+"endif
+"
 "End dein Scripts-------------------------
+set autowrite
 
-"Indent-------------------------
-set autoindent
-set smartindent
-set smarttab
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
+"Go syntax highlight
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
-autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType scss       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType sass       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType json       setlocal sw=4 sts=4 ts=4 et
-
-
-
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
 
