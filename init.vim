@@ -36,6 +36,10 @@ syntax on
 set autowrite
 set encoding=UTF-8
 
+" UI
+autocmd VimEnter * NERDTree
+
+
 "Go syntax highlight
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
